@@ -4,4 +4,14 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>ExportServlet</servlet-name>
+  	<display-name>ExportServlet</display-name>
+  	<description>Export PDF using Jasper Report</description>
+  	<servlet-class>com.example.ExportServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ExportServlet</servlet-name>
+  	<url-pattern>/export</url-pattern>
+  </servlet-mapping>
 </web-app>
