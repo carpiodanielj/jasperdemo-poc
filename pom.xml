@@ -28,39 +28,76 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Jasper Reports -->
+		<!-- Jasper Reports (Core) -->
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports</artifactId>
 			<version>6.1.0</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-aop</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-asm</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-expression</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.lowagie</groupId>
 			<artifactId>itext</artifactId>
 			<version>2.1.7</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>org.codehaus.groovy</groupId>
 			<artifactId>groovy-all</artifactId>
 			<version>1.8.6</version>
 		</dependency>
-
-		<!-- Apache Commons -->
+		<!-- Jasper Reports (Barcode) -->
 		<dependency>
-			<groupId>commons-digester</groupId>
-			<artifactId>commons-digester</artifactId>
+			<groupId>net.sf.barcode4j</groupId>
+			<artifactId>barcode4j</artifactId>
 			<version>2.1</version>
 		</dependency>
 		<dependency>
+			<groupId>org.apache.xmlgraphics</groupId>
+			<artifactId>batik-bridge</artifactId>
+			<version>1.7</version>
+		</dependency>
+
+		<!-- Apache Commons -->
+		<!-- <dependency>
+			<groupId>commons-digester</groupId>
+			<artifactId>commons-digester</artifactId>
+			<version>2.1</version>
+		</dependency> -->
+		<!-- <dependency>
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
 			<version>3.0</version>
-		</dependency>
-		<dependency>
+		</dependency> -->
+		<!-- <dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
 			<version>1.2</version>
-		</dependency>
+		</dependency> -->
 
 		<!-- Jackson JSON -->
 		<dependency>
@@ -73,7 +110,7 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.4.3</version>
 		</dependency>
-		
+
 		<!-- Log4j -->
 		<dependency>
 			<groupId>log4j</groupId>

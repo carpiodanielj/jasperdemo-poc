@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="certificadoCalidad" pageWidth="595" pageHeight="842" columnWidth="525" leftMargin="35" rightMargin="35" topMargin="10" bottomMargin="20" isSummaryWithPageHeaderAndFooter="true" uuid="1bb6452e-fdf7-4396-8244-6979ab8bfc85">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="fondoTF" fill="Solid" pattern="">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2!=0)]]></conditionExpression>
+			<style backcolor="#F0F0F0"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="nombreCliente" class="java.lang.Object"/>
+	<parameter name="codigoPedido" class="java.lang.Long"/>
+	<parameter name="desFechaHoy" class="java.lang.String"/>
+	<parameter name="desPie" class="java.lang.String"/>
+	<field name="codigoSerie" class="java.lang.String"/>
+	<field name="numeroDocumentoSunat" class="java.lang.String"/>
+	<field name="numeroPosicion" class="java.lang.String"/>
+	<field name="codigoProducto" class="java.lang.Long"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="numeroLote" class="java.lang.String"/>
+	<field name="cantidad" class="java.lang.Double"/>
+	<field name="unidadMedida" class="java.lang.String"/>
+	<field name="fehPro" class="java.lang.String"/>
+	<field name="fecVen" class="java.lang.String"/>
+	<variable name="variable1" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="268" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="131" width="525" height="27" uuid="99437b63-6ee9-4fc7-a5d5-f2ae75dfefc0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+					<paragraph leftIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nombreCliente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="111" width="525" height="21" uuid="a4e18022-1973-49ae-a892-5489536eb098"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+					<paragraph leftIndent="1"/>
+				</textElement>
+				<text><![CDATA[Señorones:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="157" width="140" height="20" uuid="99237ae7-900c-4c13-bc15-9edb33394282"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+					<paragraph leftIndent="1"/>
+				</textElement>
+				<text><![CDATA[VITAPRO S.A , CERTIFICA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="139" y="157" width="249" height="20" uuid="a0d6574d-08ba-46ec-8625-078476c2388a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+					<paragraph leftIndent="1"/>
+				</textElement>
+				<text><![CDATA[por este medio que sus alimentos balanceados Nicovita]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="387" y="157" width="81" height="20" uuid="ce78ce44-5bf3-4928-871b-9d2b039c67ee"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+					<paragraph leftIndent="1"/>
+				</textElement>
+				<text><![CDATA[según pedido N°]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="176" width="198" height="20" uuid="d0a6a8c0-3ff6-4a66-bdba-9dda45cf62e6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+					<paragraph leftIndent="1"/>
+				</textElement>
+				<text><![CDATA[cuyos lotes descritos a continuación, NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="176" width="328" height="20" uuid="30e378e0-a03b-434d-8751-1b33165e93e5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+					<paragraph leftIndent="1"/>
+				</textElement>
+				<text><![CDATA[incluyen en su formulación antibióticos, drogas y componentes químicos ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="195" width="525" height="23" uuid="2d726473-26f0-4b2e-9f0a-f1b40cff18c2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+					<paragraph leftIndent="1"/>
+				</textElement>
+				<text><![CDATA[no autorizados. Los niveles de Pesticidas, PCBs y metales pesados cumplen la legislación internacional según FDA y ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="467" y="157" width="58" height="20" uuid="cae14afd-8c5a-4b8b-bf85-d81f37921660"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+					<paragraph leftIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{codigoPedido}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="247" width="65" height="20" uuid="ad76d7e2-6e29-4229-97f5-9dbe4dc3a438"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+					<paragraph leftIndent="1"/>
+				</textElement>
+				<text><![CDATA[Pedido N°]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="64" y="247" width="461" height="20" uuid="d30beb4f-87c5-42df-9311-0cca074c1e39"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{codigoPedido}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="218" width="525" height="23" uuid="4233b922-0eda-4f51-a805-b25b67faa753"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial" size="10"/>
+					<paragraph leftIndent="1"/>
+				</textElement>
+				<text><![CDATA[CEE.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="171" y="90" width="20" height="22" uuid="a70a3cc1-74e2-4d70-99fd-77fbf0176b6d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[C]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="90" width="20" height="22" uuid="ba47fab9-8ee2-4b4d-840c-a8efd8f11a20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="90" width="20" height="22" uuid="0c7945e7-d4c2-4444-ba14-fd0fd930a2ba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[T]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="90" width="20" height="22" uuid="716f977a-7e7c-4bf8-ba31-12a32f03eec4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[R]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="266" y="90" width="20" height="22" uuid="2d2feaab-130e-4f18-a6f2-83607feebd98"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[F]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="247" y="90" width="20" height="22" uuid="3661721c-d70a-4d0a-9007-652eecab50b6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[I]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="304" y="90" width="20" height="22" uuid="585ee2e7-9857-4132-8631-49eb741cea3f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[C]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="90" width="20" height="22" uuid="1ceb7576-4f55-469c-b921-bcd1f19fc30f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[I]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="90" width="20" height="22" uuid="98209fb5-d04f-4251-a7fd-98b2a156a434"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[A]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="90" width="20" height="22" uuid="14e80892-6a8a-4c60-b0d2-c3ecd31859bd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[D]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="361" y="90" width="20" height="22" uuid="7402dda8-432b-4acf-9fda-0372d183e8c6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[O]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="0" y="0" width="200" height="50" uuid="057c2d71-c872-4e02-bbd3-cba6ad5b39b9"/>
+				<jr:EAN13 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" textPosition="bottom">
+					<jr:codeExpression><![CDATA["012345678901"]]></jr:codeExpression>
+				</jr:EAN13>
+			</componentElement>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="90" splitType="Stretch">
+			<printWhenExpression><![CDATA[new Boolean($V{PAGE_NUMBER}.intValue()>1)]]></printWhenExpression>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="70" y="0" width="120" height="30" uuid="5fac95ef-bb32-4885-90a6-155fd8522d5f"/>
+				<box>
+					<topPen lineWidth="0.1" lineColor="#000000"/>
+					<leftPen lineWidth="0.1" lineColor="#000000"/>
+					<bottomPen lineWidth="0.1" lineColor="#000000"/>
+					<rightPen lineWidth="0.1" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nombre de Producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="190" y="0" width="90" height="30" uuid="36d07747-9623-4801-a954-c59aba62a4d8"/>
+				<box>
+					<topPen lineWidth="0.1" lineColor="#000000"/>
+					<leftPen lineWidth="0.1" lineColor="#000000"/>
+					<bottomPen lineWidth="0.1" lineColor="#000000"/>
+					<rightPen lineWidth="0.1" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Número de Lote]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="280" y="0" width="59" height="30" uuid="3bd0d15d-08b2-4732-b491-e75748ac5c60"/>
+				<box>
+					<topPen lineWidth="0.1" lineColor="#000000"/>
+					<leftPen lineWidth="0.1" lineColor="#000000"/>
+					<bottomPen lineWidth="0.1" lineColor="#000000"/>
+					<rightPen lineWidth="0.1" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="339" y="0" width="42" height="30" uuid="7cfd8ec5-c42c-4017-9fe0-055705413f17"/>
+				<box>
+					<topPen lineWidth="0.1" lineColor="#000000"/>
+					<leftPen lineWidth="0.1" lineColor="#000000"/>
+					<bottomPen lineWidth="0.1" lineColor="#000000"/>
+					<rightPen lineWidth="0.1" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Unidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="453" y="0" width="72" height="30" uuid="d9c78df4-516a-4495-85b6-092fff18ea94"/>
+				<box>
+					<topPen lineWidth="0.1" lineColor="#000000"/>
+					<leftPen lineWidth="0.1" lineColor="#000000"/>
+					<bottomPen lineWidth="0.1" lineColor="#000000"/>
+					<rightPen lineWidth="0.1" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Fecha de Vencimiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="381" y="0" width="72" height="30" uuid="d37098e0-03b2-41ce-a0ab-e20a261e7056"/>
+				<box>
+					<topPen lineWidth="0.1" lineColor="#000000"/>
+					<leftPen lineWidth="0.1" lineColor="#000000"/>
+					<bottomPen lineWidth="0.1" lineColor="#000000"/>
+					<rightPen lineWidth="0.1" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Fecha de Producción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="70" height="30" uuid="023d93c8-6109-45f1-9dcb-7401672f1e32"/>
+				<box>
+					<topPen lineWidth="0.1" lineColor="#000000"/>
+					<leftPen lineWidth="0.1" lineColor="#000000"/>
+					<bottomPen lineWidth="0.1" lineColor="#000000"/>
+					<rightPen lineWidth="0.1" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Código de Producto]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="fondoTF" mode="Opaque" x="70" y="0" width="120" height="35" uuid="b8b55e82-f0a5-40cb-9e48-abfef9d28b14"/>
+				<box>
+					<topPen lineWidth="0.1" lineColor="#000000"/>
+					<leftPen lineWidth="0.1" lineColor="#000000"/>
+					<bottomPen lineWidth="0.1" lineColor="#000000"/>
+					<rightPen lineWidth="0.1" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+					<paragraph leftIndent="4" rightIndent="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="fondoTF" mode="Opaque" x="190" y="0" width="90" height="35" uuid="bb83727e-182b-4355-a305-18d84c302fb0"/>
+				<box>
+					<topPen lineWidth="0.1" lineColor="#000000"/>
+					<leftPen lineWidth="0.1" lineColor="#000000"/>
+					<bottomPen lineWidth="0.1" lineColor="#000000"/>
+					<rightPen lineWidth="0.1" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroLote}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="###0" isBlankWhenNull="true">
+				<reportElement style="fondoTF" mode="Opaque" x="280" y="0" width="59" height="35" uuid="47f66aa7-781d-4a8d-950a-309de5c57fca"/>
+				<box>
+					<topPen lineWidth="0.1" lineColor="#000000"/>
+					<leftPen lineWidth="0.1" lineColor="#000000"/>
+					<bottomPen lineWidth="0.1" lineColor="#000000"/>
+					<rightPen lineWidth="0.1" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,##0.000", new java.text.DecimalFormatSymbols(java.util.Locale.US)).format($F{cantidad})]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="fondoTF" mode="Opaque" x="339" y="0" width="42" height="35" uuid="20d1d3db-2a0a-4bf5-82ca-2a116fda7c86"/>
+				<box>
+					<topPen lineWidth="0.1" lineColor="#000000"/>
+					<leftPen lineWidth="0.1" lineColor="#000000"/>
+					<bottomPen lineWidth="0.1" lineColor="#000000"/>
+					<rightPen lineWidth="0.1" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{unidadMedida}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="fondoTF" mode="Opaque" x="381" y="0" width="72" height="35" uuid="cde00a3c-4dcf-40f5-b972-64526a775d5a"/>
+				<box>
+					<topPen lineWidth="0.1" lineColor="#000000"/>
+					<leftPen lineWidth="0.1" lineColor="#000000"/>
+					<bottomPen lineWidth="0.1" lineColor="#000000"/>
+					<rightPen lineWidth="0.1" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fehPro}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="fondoTF" mode="Opaque" x="453" y="0" width="72" height="35" uuid="86651318-0f34-4f8c-bb7a-51832dc82c5c"/>
+				<box>
+					<topPen lineWidth="0.1" lineColor="#000000"/>
+					<leftPen lineWidth="0.1" lineColor="#000000"/>
+					<bottomPen lineWidth="0.1" lineColor="#000000"/>
+					<rightPen lineWidth="0.1" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecVen}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="fondoTF" mode="Opaque" x="0" y="0" width="70" height="35" uuid="d9c3daa0-72ad-477f-a157-57842ac6f18b"/>
+				<box>
+					<topPen lineWidth="0.1" lineColor="#000000"/>
+					<leftPen lineWidth="0.1" lineColor="#000000"/>
+					<bottomPen lineWidth="0.1" lineColor="#000000"/>
+					<rightPen lineWidth="0.1" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+					<paragraph leftIndent="1" rightIndent="1"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigoProducto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="201" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="9" width="525" height="20" uuid="4bea410e-9083-4480-a8ba-8669e4567344"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{desPie}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="340" y="125" width="140" height="15" uuid="cc32ccc1-0d88-4a79-aa86-8db9c2e8863b"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Kathya Tennison Padovani]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="140" width="180" height="20" uuid="e8b19d86-6f6a-45bf-b717-89c51a614f3f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Gerente Corporativo de Calidad & SGI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="160" width="140" height="15" uuid="6bd3b2b7-17ae-4dd2-a0e9-1014966817d0"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[VITAPRO S.A.]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
