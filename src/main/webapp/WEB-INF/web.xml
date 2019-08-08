@@ -10,8 +10,18 @@
   	<description>Export PDF using Jasper Report</description>
   	<servlet-class>com.example.ExportServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SubreportServlet</servlet-name>
+  	<display-name>SubreportServlet</display-name>
+  	<description>Probar la funcionalidad de Sub-reporte de Jasper Reports</description>
+  	<servlet-class>com.example.SubreportServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>ExportServlet</servlet-name>
   	<url-pattern>/export</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SubreportServlet</servlet-name>
+  	<url-pattern>/subreport</url-pattern>
   </servlet-mapping>
 </web-app>

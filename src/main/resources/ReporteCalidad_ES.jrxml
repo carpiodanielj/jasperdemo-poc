@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="certificadoCalidad" pageWidth="595" pageHeight="842" columnWidth="525" leftMargin="35" rightMargin="35" topMargin="10" bottomMargin="20" isSummaryWithPageHeaderAndFooter="true" uuid="1bb6452e-fdf7-4396-8244-6979ab8bfc85">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="fondoTF" fill="Solid" pattern="">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2!=0)]]></conditionExpression>
+			<style backcolor="#F0F0F0"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="nombreClienteRansa" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\Corporacion\\workspaces\\wsTutorial\\jasperdemo\\src\\main\\resources\\"]]></defaultValueExpression>
+	</parameter>
+	<field name="descProveedor" class="java.lang.String"/>
+	<field name="numOC" class="java.lang.String"/>
+	<field name="storageLocation" class="java.lang.String"/>
+	<field name="estadoOC" class="java.lang.String"/>
+	<field name="fechaOC" class="java.lang.String"/>
+	<field name="itemList" class="java.util.List"/>
+	<variable name="variable1" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="60" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="525" height="30" uuid="99437b63-6ee9-4fc7-a5d5-f2ae75dfefc0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nombreClienteRansa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="30" width="525" height="20" uuid="4233b922-0eda-4f51-a805-b25b67faa753"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Órdenes de Compra y Barcodes]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="180" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="89" height="20" uuid="928255fc-b26a-4b15-9de1-e7cb92882bf2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+					<paragraph rightIndent="4"/>
+				</textElement>
+				<text><![CDATA[Proveedor :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="89" height="20" uuid="bbd71b65-35d4-4c18-8dd3-beb9e6e3b809"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+					<paragraph rightIndent="4"/>
+				</textElement>
+				<text><![CDATA[Fecha OC :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="0" width="97" height="20" uuid="a5dd7ebc-fa45-48a7-bbbe-30db3e002dbf"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+					<paragraph rightIndent="4"/>
+				</textElement>
+				<text><![CDATA[Estado OC :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="20" width="97" height="20" uuid="69ef8fbd-48ac-49cb-9e3b-2478bf341b7c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+					<paragraph rightIndent="4"/>
+				</textElement>
+				<text><![CDATA[Storage Location :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="89" height="20" uuid="3e842c72-f604-480f-910b-8455e27daee0"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+					<paragraph rightIndent="4"/>
+				</textElement>
+				<text><![CDATA[SKUs de la OC :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="89" y="40" width="187" height="20" uuid="cc71553c-7d7e-41c0-a5e4-a221a4af9883"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numOC}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="70" width="525" height="100" uuid="6bf142df-e645-4f92-8a17-5cab616a4de9"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{itemList})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "ReporteCalidad_subreport1.jasper"]]></subreportExpression>
+			</subreport>
+			<textField isBlankWhenNull="true">
+				<reportElement x="89" y="0" width="187" height="20" uuid="4022d1f7-a8c9-4b90-a821-20805392efef"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descProveedor}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="89" y="20" width="187" height="20" uuid="47d20de6-c799-4542-86e0-154886d5138f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaOC}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="373" y="0" width="152" height="20" uuid="4c8aed3c-87ef-4d53-916a-a8b0b82dea34"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{estadoOC}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="373" y="20" width="152" height="20" uuid="5463e984-ae34-4245-a845-1b7757e087fe"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{storageLocation}]]></textFieldExpression>
+			</textField>
+			<break>
+				<reportElement x="0" y="175" width="525" height="1" uuid="348ba0f8-6491-456c-a5ef-2c2d0176fa59"/>
+			</break>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy h:mm a">
+				<reportElement x="0" y="0" width="100" height="20" uuid="6fe5f092-e9f8-48ed-85e1-25bd93e4444c"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="405" y="0" width="80" height="20" uuid="9ca6321c-dd75-4a7c-ae74-5409a78a9ce2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="485" y="0" width="40" height="20" uuid="30fe63f2-9a96-4c68-b47f-89d2e3426eeb"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

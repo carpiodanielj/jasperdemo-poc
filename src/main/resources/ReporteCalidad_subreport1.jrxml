@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteCalidad_subreport1" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="9d0a2079-1587-47c1-a09f-232d42bddcbe">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="fondoTF" fill="Solid" pattern="">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{PAGE_COUNT}.intValue()%2!=0)]]></conditionExpression>
+			<style backcolor="#F0F0F0"/>
+		</conditionalStyle>
+	</style>
+	<field name="numItem" class="java.lang.String"/>
+	<field name="skuCod" class="java.lang.String"/>
+	<field name="skuDesc" class="java.lang.String"/>
+	<field name="skuVendor" class="java.lang.String"/>
+	<field name="uom" class="java.lang.String"/>
+	<field name="cantOC" class="java.lang.String"/>
+	<field name="cantRecibida" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="25" height="30" uuid="83deab29-9d8f-4425-a72a-b72a190d62f3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Item]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="25" y="0" width="141" height="30" uuid="db689862-dbf7-4502-896a-54e9b4e0396b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+					<paragraph leftIndent="4"/>
+				</textElement>
+				<text><![CDATA[SKU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="166" y="0" width="100" height="30" uuid="6672464b-cff1-4fdf-880b-0d8db251c6b6"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+					<paragraph leftIndent="4"/>
+				</textElement>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="266" y="0" width="152" height="30" uuid="2f76070b-294c-4cd0-a5fb-513054c6109b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+					<paragraph leftIndent="4"/>
+				</textElement>
+				<text><![CDATA[Vendor SKU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="418" y="0" width="40" height="30" uuid="03a9c63f-12bd-49a1-bd43-cee45ad5f082"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[UOM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="505" y="0" width="50" height="30" uuid="80cfc8f8-5ea9-4feb-9d77-56969841be82"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cant. Recibida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="458" y="0" width="47" height="30" uuid="e54311dd-dbec-43eb-9494-4c52c7f6ce12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cant. OC]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="70" splitType="Stretch">
+			<textField>
+				<reportElement style="fondoTF" x="0" y="0" width="25" height="20" uuid="528fdc16-ebd1-499a-be6b-5a6e9db63944"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{numItem}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="fondoTF" x="25" y="0" width="141" height="20" uuid="a4d2025a-ad0c-4800-b083-15e3ccf08778"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<paragraph leftIndent="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{skuCod}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="fondoTF" x="166" y="0" width="100" height="20" uuid="c82ac890-0de0-464f-97a1-71f40a65f034"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<paragraph leftIndent="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{skuDesc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="fondoTF" x="266" y="0" width="152" height="20" uuid="4869e632-faac-4f78-b1da-c08532493c20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<paragraph leftIndent="4"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{skuVendor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="fondoTF" x="418" y="0" width="40" height="20" uuid="256346ba-2d34-4ca8-b1b9-0c2bc5d26aaa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{uom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="fondoTF" x="458" y="0" width="47" height="20" uuid="a1553551-4267-465f-99cf-62f174c784ff"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="fondoTF" x="505" y="0" width="50" height="20" uuid="1276a06c-c680-4f7e-b17f-72558cb90ded"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cantRecibida}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="25" y="25" width="141" height="40" uuid="581b8327-de13-4d79-a4fe-27082edba9f7"/>
+				<jr:Code128 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" textPosition="none">
+					<jr:codeExpression><![CDATA[$F{skuCod}]]></jr:codeExpression>
+				</jr:Code128>
+			</componentElement>
+			<componentElement>
+				<reportElement x="266" y="25" width="152" height="40" uuid="b37e5dbb-7345-4f12-8813-233941c108f2"/>
+				<jr:Code128 xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" textPosition="none">
+					<jr:codeExpression><![CDATA[$F{skuVendor}]]></jr:codeExpression>
+				</jr:Code128>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
