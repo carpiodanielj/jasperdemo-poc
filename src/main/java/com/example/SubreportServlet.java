@@ -3,7 +3,6 @@ package com.example;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.apache.log4j.Logger;
 
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -34,35 +34,16 @@ public class SubreportServlet extends HttpServlet {
 
 	private void exportPDF(HttpServletResponse response) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("nombreClienteRansa", "GENERIC FRIO RANSA");
+		parameters.put("nombreClienteRansa", "RANSA COMERCIAL S.A.");
 		logger.info(parameters);
 
 		try {
 			InputStream is = this.getClass().getClassLoader().getResourceAsStream("ReporteCalidad_ES.jrxml");
 			
-			BeanItemsReporteCalidad itemBean1 = new BeanItemsReporteCalidad();
-			itemBean1.setSkuCod("1234567890123");
-			itemBean1.setSkuVendor("123456789012");
-			BeanItemsReporteCalidad itemBean2 = new BeanItemsReporteCalidad();
-			itemBean2.setSkuCod("012345678901");
-			itemBean2.setSkuVendor("012345678901");
-			BeanReporteCalidad bean = new BeanReporteCalidad();
-			bean.setNumOC("OC-999555");
-			bean.setItemList(Arrays.asList(itemBean1, itemBean2));
-
-			BeanItemsReporteCalidad itemBean3 = new BeanItemsReporteCalidad();
-			itemBean3.setSkuCod("666666666666");
-			itemBean3.setSkuVendor("888888888888");
-			BeanItemsReporteCalidad itemBean4 = new BeanItemsReporteCalidad();
-			itemBean4.setSkuCod("999999999999");
-			itemBean4.setSkuVendor("111111111111");
-			BeanReporteCalidad bean2 = new BeanReporteCalidad();
-			bean2.setNumOC("OC-888666");
-			bean2.setItemList(Arrays.asList(itemBean3, itemBean4));
-			
 			List<BeanReporteCalidad> listaDetalle = new ArrayList<BeanReporteCalidad>();
-			listaDetalle.add(bean);
-			listaDetalle.add(bean2);
+			listaDetalle.add(getBean("OC-111222"));
+			listaDetalle.add(getBean("OC-333444"));
+			listaDetalle.add(getBean("OC-555666"));
 			
 			JRBeanCollectionDataSource ds = new JRBeanCollectionDataSource(listaDetalle);
 
@@ -88,6 +69,21 @@ public class SubreportServlet extends HttpServlet {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
+	}
+
+	private BeanReporteCalidad getBean(String numOC) {
+		List<BeanItemsReporteCalidad> itemList = new ArrayList<BeanItemsReporteCalidad>();
+		for (int i = 0; i < 8; i++) {
+			BeanItemsReporteCalidad itemBean = new BeanItemsReporteCalidad();
+			itemBean.setNumItem("" + (i + 1));
+			itemBean.setSkuCod(RandomStringUtils.randomNumeric(15));
+			itemBean.setSkuVendor(RandomStringUtils.randomNumeric(12));
+			itemList.add(itemBean);
+		}
+		BeanReporteCalidad bean = new BeanReporteCalidad();
+		bean.setNumOC(numOC);
+		bean.setItemList(itemList);
+		return bean;
 	}
 
 	/**
