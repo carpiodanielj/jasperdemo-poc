@@ -37,14 +37,14 @@
 			<textField>
 				<reportElement x="0" y="0" width="525" height="30" uuid="99437b63-6ee9-4fc7-a5d5-f2ae75dfefc0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="12" isBold="true"/>
+					<font fontName="SansSerif" size="10" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{nombreClienteRansa}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="0" y="30" width="525" height="20" uuid="4233b922-0eda-4f51-a805-b25b67faa753"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="SansSerif" size="10" isBold="true"/>
+					<font fontName="SansSerif" size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Reporte de Órdenes de Compra y Barcodes]]></text>
 			</staticText>
@@ -58,7 +58,7 @@
 			<staticText>
 				<reportElement x="0" y="10" width="89" height="20" uuid="928255fc-b26a-4b15-9de1-e7cb92882bf2"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="SansSerif" isBold="true"/>
+					<font fontName="SansSerif" size="9" isBold="true"/>
 					<paragraph rightIndent="4"/>
 				</textElement>
 				<text><![CDATA[Proveedor :]]></text>
@@ -66,7 +66,7 @@
 			<staticText>
 				<reportElement x="0" y="30" width="89" height="20" uuid="bbd71b65-35d4-4c18-8dd3-beb9e6e3b809"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="SansSerif" isBold="true"/>
+					<font fontName="SansSerif" size="9" isBold="true"/>
 					<paragraph rightIndent="4"/>
 				</textElement>
 				<text><![CDATA[Fecha OC :]]></text>
@@ -74,7 +74,7 @@
 			<staticText>
 				<reportElement x="276" y="10" width="97" height="20" uuid="a5dd7ebc-fa45-48a7-bbbe-30db3e002dbf"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="SansSerif" isBold="true"/>
+					<font fontName="SansSerif" size="9" isBold="true"/>
 					<paragraph rightIndent="4"/>
 				</textElement>
 				<text><![CDATA[Estado OC :]]></text>
@@ -82,7 +82,7 @@
 			<staticText>
 				<reportElement x="276" y="30" width="97" height="20" uuid="69ef8fbd-48ac-49cb-9e3b-2478bf341b7c"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="SansSerif" isBold="true"/>
+					<font fontName="SansSerif" size="9" isBold="true"/>
 					<paragraph rightIndent="4"/>
 				</textElement>
 				<text><![CDATA[Storage Location :]]></text>
@@ -90,7 +90,7 @@
 			<staticText>
 				<reportElement x="0" y="50" width="89" height="20" uuid="3e842c72-f604-480f-910b-8455e27daee0"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="SansSerif" isBold="true"/>
+					<font fontName="SansSerif" size="9" isBold="true"/>
 					<paragraph rightIndent="4"/>
 				</textElement>
 				<text><![CDATA[SKUs de la OC :]]></text>
@@ -98,7 +98,7 @@
 			<textField isBlankWhenNull="true">
 				<reportElement mode="Transparent" x="89" y="50" width="187" height="20" uuid="cc71553c-7d7e-41c0-a5e4-a221a4af9883"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="SansSerif"/>
+					<font fontName="SansSerif" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{numOC}]]></textFieldExpression>
 			</textField>
@@ -110,28 +110,28 @@
 			<textField isBlankWhenNull="true">
 				<reportElement x="89" y="10" width="187" height="20" uuid="4022d1f7-a8c9-4b90-a821-20805392efef"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="SansSerif"/>
+					<font fontName="SansSerif" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{descProveedor}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="89" y="30" width="187" height="20" uuid="47d20de6-c799-4542-86e0-154886d5138f"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="SansSerif"/>
+					<font fontName="SansSerif" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{fechaOC}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="373" y="10" width="152" height="20" uuid="4c8aed3c-87ef-4d53-916a-a8b0b82dea34"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="SansSerif"/>
+					<font fontName="SansSerif" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{estadoOC}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
 				<reportElement x="373" y="30" width="152" height="20" uuid="5463e984-ae34-4245-a845-1b7757e087fe"/>
 				<textElement verticalAlignment="Middle">
-					<font fontName="SansSerif"/>
+					<font fontName="SansSerif" size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{storageLocation}]]></textFieldExpression>
 			</textField>

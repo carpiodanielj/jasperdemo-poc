@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -73,11 +74,17 @@ public class SubreportServlet extends HttpServlet {
 
 	private BeanReporteCalidad getBean(String numOC) {
 		List<BeanItemsReporteCalidad> itemList = new ArrayList<BeanItemsReporteCalidad>();
-		for (int i = 0; i < 8; i++) {
+		String[] uoms = new String[] {"KG", "LAT"};
+		Random r = new Random();
+		for (int i = 0; i < 10; i++) {
 			BeanItemsReporteCalidad itemBean = new BeanItemsReporteCalidad();
 			itemBean.setNumItem("" + (i + 1));
-			itemBean.setSkuCod(RandomStringUtils.randomNumeric(15));
-			itemBean.setSkuVendor(RandomStringUtils.randomNumeric(12));
+			itemBean.setSkuCod(RandomStringUtils.randomNumeric(23) + ".1");
+			itemBean.setSkuVendor(RandomStringUtils.randomNumeric(25));
+			itemBean.setSkuDesc("PRODUCTORA DE HIELO EN CUBO BIN INCORPORADOR SERIE SOTTO 85 KG 24 HR MANITOWOC");
+			itemBean.setUom(uoms[r.nextInt(2)]);
+			itemBean.setCantOC(RandomStringUtils.randomNumeric(r.nextInt(3) + 1));
+			itemBean.setCantRecibida(RandomStringUtils.randomNumeric(r.nextInt(3) + 1));
 			itemList.add(itemBean);
 		}
 		BeanReporteCalidad bean = new BeanReporteCalidad();
