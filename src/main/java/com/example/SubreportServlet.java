@@ -35,7 +35,7 @@ public class SubreportServlet extends HttpServlet {
 	private void exportPDF(HttpServletResponse response) {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("nombreClienteRansa", "GENERIC FRIO RANSA");
-		logger.info("parameters...");
+		logger.info(parameters);
 
 		try {
 			InputStream is = this.getClass().getClassLoader().getResourceAsStream("ReporteCalidad_ES.jrxml");
